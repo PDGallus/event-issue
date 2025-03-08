@@ -19,7 +19,7 @@ describe('MyElement', () => {
 		(element as any).count = 1;
 		await elementUpdated(element);
 		// breaks in line above, no breakpoints after this will be reached
-		expect(handler.mock.calls[0][0]).toBe(1);
+		expect(handler.mock.calls[handler.mock.calls.length - 1][0].detail).toBe(1);
 		expect((element as any).count).toBe(1);
 	});
 	it('could handle click event on plain html element', async () => {
